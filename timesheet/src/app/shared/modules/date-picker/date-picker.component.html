@@ -1,0 +1,13 @@
+<input class="tables_filter_single"
+       [matDatepicker]="picker"
+       [placeholder]="placeholder"
+       [title]="title"
+       [min]="minValidDate"
+       [max]="maxValidDate"
+       (dateInput)="dateChange.emit($event.value.toISOString())"
+       (click)="picker.opened ? picker.close() : picker.open()">
+<mat-datepicker #picker></mat-datepicker>
+<button mat-icon-button class="tables_calender"
+        (click)="picker.opened ? picker.close() : picker.open()">
+  <mat-icon class="tables_calender_icon">date_range</mat-icon>
+</button>

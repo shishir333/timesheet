@@ -1,0 +1,31 @@
+<tr class="tables_sorting_tr" *ngFor="let task of taskList$ | async">
+  <td class="tables_sorting_td"> <span class="requestListTextStyle requestTextAlign1">
+      {{ task.assigneeFirstName }} {{ task.assigneeLastName }}</span> </td>
+  <td class="tables_sorting_td"> <span class="requestListTextStyle">
+      {{(task.system === undefined || task.system === null) ? 'Un Assigned' : task.system }}</span> </td>
+  <td class="tables_sorting_td">
+      <span i18n="Organization Request task status heading|Heading for the current status of the task@@organizationRequestTaskStatusTextAccepted"
+            class="requestListTextStyle accepted" *ngIf="task.status.toLowerCase() === 'accepted'">
+        Accepted</span>
+    <span i18n="Organization Request task status heading|Heading for the current status of the task@@organizationRequestTaskStatusTextRejected"
+          class="requestListTextStyle rejected" *ngIf="task.status.toLowerCase() === 'rejected'">
+        Rejected</span>
+    <span i18n="Organization Request task status heading|Heading for the current status of the task@@organizationRequestTaskStatusTextPending"
+          class="requestListTextStyle pending" *ngIf="task.status.toLowerCase() === 'pending'">
+        Pending</span>
+  </td>
+  <td class="tables_sorting_td">
+    <mat-icon *ngIf="task.comments" class="custom_icon_font-20 custom_color1"> i </mat-icon>
+  </td>
+  <td class="tables_sorting_td"> <span class="requestListTextStyle">
+      5</span> </td>
+  <td class="tables_sorting_td"> <span class="requestListTextStyle">
+      6</span> </td>
+  <td class="tables_sorting_td"> <span class="requestListTextStyle">
+      2</span> </td>
+  <td class="tables_sorting_td">
+      <span (click)="completeAction(task)" *ngIf="task.status.toLowerCase() === 'pending'">
+        <mat-icon class="custom_icon_font-20 custom_color2 cursor_pointer" gdprAccentStyle="font"> h </mat-icon>
+      </span>
+  </td>
+</tr>

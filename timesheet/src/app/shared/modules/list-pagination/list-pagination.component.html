@@ -1,0 +1,7 @@
+<div *ngIf="showPagination" class="pagination_container">
+  <ngb-pagination [collectionSize]="updatedCollectionSize"
+                  (pageChange)="pageChange.emit($event)"
+                  [(page)]="page" [maxSize]="maxSize" [rotate]="true" [boundaryLinks]="true">
+  </ngb-pagination>
+</div>
+

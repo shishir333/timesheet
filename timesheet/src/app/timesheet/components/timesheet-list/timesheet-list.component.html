@@ -1,0 +1,39 @@
+<table class="tables_sorting" matSort [matSortDisableClear]="true" [matSortActive]="'dueDate'" [matSortDirection]="'asc'"
+       (matSortChange)="sort.emit($event)">
+
+  <tr class="tables_sorting_tr">
+    <th class="table_header" i18n="Organization Request task Request Date Heading|Heading the organization sees for request date on the list of Request Task@@organizationRequestTaskRequestDateHeader"
+        mat-sort-header="assigned" gdprAccentStyle="font">Badge#/Worker
+    </th>
+    <th class="table_header" i18n="Organization Request task Due Date Heading|Heading the organization sees for due date on the list of Request Task@@organizationRequestTaskDueDateHeader"
+        mat-sort-header="system" gdprAccentStyle="font">Wage Code
+    </th>
+    <th class="table_header" i18n="Organization Request task Location Id Heading|Heading the organization sees for status on the list of Request Task@@organizationRequestTaskStatusHeader"
+        mat-sort-header="status" gdprAccentStyle="font">Time On
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedNotes"
+        mat-sort-header="notes" gdprAccentStyle="font">Time Off
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedNotes"
+        mat-sort-header="notes" gdprAccentStyle="font">ST
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedNotes"
+        mat-sort-header="notes" gdprAccentStyle="font">OT
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedNotes"
+        mat-sort-header="notes" gdprAccentStyle="font">MH
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedCompleteTaskHeader"
+        mat-sort-header="Complete task" gdprAccentStyle="font">ST Rate
+    </th>
+    <th class="table_header" i18n="Organization Request task action requested Heading|Heading the organization sees for request on the list of Request Task@@organizationRequestTaskActionRequestedCompleteTaskHeader"
+        mat-sort-header="Complete task" gdprAccentStyle="font">Complete task
+    </th>
+  </tr>
+  <ts-timesheet-add-item></ts-timesheet-add-item>
+  <ts-timesheet-view-item>
+  </ts-timesheet-view-item>
+</table>
+<!--<ts-list-pagination-->
+  <!--(pageChange)="pageChange($event)" [collectionSize]="(totalPages$ | async) * tasksPerPage"-->
+  <!--[entriesPerPage]="tasksPerPage"></ts-list-pagination>-->

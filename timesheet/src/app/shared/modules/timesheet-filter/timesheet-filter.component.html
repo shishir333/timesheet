@@ -1,0 +1,61 @@
+<mat-dialog-content class="tables_filter">
+  <div class="reqFilter">
+    <button class="filter_button pull-right" (click)="toggleDiv()">
+      <span i18n="Filter Button Task List Filter| Label for Filter Button on Task List Filter@@taskListFilterButton"
+            class="text-grey">Filter</span>
+      <mat-icon class="button_icons_navigation-30" *ngIf="showDiv">keyboard_arrow_down</mat-icon>
+      <mat-icon class="button_icons_navigation-30" *ngIf="!showDiv">keyboard_arrow_up</mat-icon>
+    </button>
+  </div>
+  <div class="tables_filter_col_container container_design" style="transition: 1s" *ngIf="showDiv">
+    <form class="inputs_form" [formGroup]="searchTaskForm">
+      <div class="tables_filter_col2" *ngIf="userType !== 'complianceofficer'">
+        <div class="inputs_row_title">
+          <span i18n="Status Label Task List Filter| Label for Status on Task List Filter@@taskListFilterStatusLabel">
+            View</span>
+        </div>
+        <div class="dtButtons">
+          <button [ngClass]="{ 'allTasks': showAllTasks }" class="Rectangle-6-Copy-4" (click)="toggleActions()"> <span
+            i18n="View All Tasks Button | Button for viewing All tasks@@aviewAllTasksButton">All Tasks</span> </button>
+          <button [ngClass]="{ 'myTasks': !showAllTasks }" class="Rectangle-6-Copy-41"  (click)="toggleActions()"> <span
+            i18n="View User Tasks Button | Button for viewing User tasks@@aviewUserTasksButton">My Tasks</span></button>
+        </div>
+      </div>
+      <div class="tables_filter_col2">
+        <div class="inputs_row_title"> <span i18n="Task Type Label Task List Filter| Label for Task Type on Task List Filter@@taskListFilterTaskTypeLabel">Status</span></div>
+        <mat-select class="inputs_entry" type="text" value="incomplete" formControlName="status" required>
+          <mat-option value="all">
+            <span i18n="All Task Type Task List Filter| Option for All Task on Task List Filter@@taskListFilterAllTaskOption">
+              All</span>
+          </mat-option>
+          <mat-option value="incomplete">
+            <span i18n="Incomplete Task List Filter| Option for Incomplete Task on Task List Filter@@taskListFilterIncompleteTaskOption">
+              Incomplete</span>
+          </mat-option>
+          <mat-option value="accepted">
+            <span i18n="Accepted Task List Filter| Option for Accepted Task on Task List Filter@@taskListFilterAcceptedTaskOption">
+              Accepted</span>
+          </mat-option>
+          <mat-option value="rejected">
+            <span i18n="Rejected Task List Filter| Option for Rejected Task on Task List Filter@@taskListFilterRejectedTaskOption">
+              Rejected</span>
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="tables_filter_col2">
+        <div class="inputs_row_title"> <span i18n="Start Date Label Task List Filter| Label for Start Date on Task List Filter@@taskListFilterStartDateLabel">Date
+            Range</span></div>
+        <ts-date-picker title="Start Date" [maxValidDate]="currentDate" [placeholder]="datePlaceholder" (dateChange)="minDateChange($event)">
+        </ts-date-picker>
+      </div>
+      <div class="tables_filter_col3">
+        <div class="inputs_row_title">&zwnj;</div>
+        <button class="buttons_standard buttons_greyed_out" mat-button gdprAccentStyle="background" (click)="taskSearch.emit(searchQuery)">
+          <span class="apply_button" i18n="Button Filter Task List Filter| Button for Filter on Task List Filter@@taskListFilterFilterButton">
+            Apply
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
